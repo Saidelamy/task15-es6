@@ -7,12 +7,12 @@ function fetchUsers() {
       return response.json();
     })
     .then((data) => {
-      data.map((user) => {
+      data.forEach((user) => {
         // console.log(user);
         const btn = document.createElement("button");
         btn.textContent = user.name;
-        btn.addEventListener("click", () => getPostsOfEachUser(user.id));
         buttonContainer.appendChild(btn);
+        btn.addEventListener("click", () => getPostsOfEachUser(user.id));
       });
     })
     .catch((error) => {
